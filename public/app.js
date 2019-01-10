@@ -11,5 +11,11 @@ function something()
 
 function add_to_cart(id)
 {
-	alert('You added pizza with id = ' + id);
+	//we have only 1 local storage, so to see different
+	//variables it's better to add some description to hash,
+	//here it's 'product_' before id
+	var key = 'product_' + id
+	var x = window.localStorage.getItem(key);
+	x = x * 1 + 1; // 1 button [Add to cart] click
+	window.localStorage.setItem(key, x);//new hash value
 }
