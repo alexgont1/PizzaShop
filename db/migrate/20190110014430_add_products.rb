@@ -2,7 +2,7 @@ class AddProducts < ActiveRecord::Migration[5.2]
 	def change
   		Product.create ({
 				  		:title => 'Hawaiian', 
-				  		:description => 'This is Hawaiian pizza', 
+				  		:description => 'This is a Hawaiian pizza', 
 				  		:price => 350, 
 				  		:size => 30, 
 				  		:is_spicy => false, 
@@ -13,7 +13,7 @@ class AddProducts < ActiveRecord::Migration[5.2]
 
   		Product.create ({
   						:title => 'Pepperoni', 
-  						:description => 'This is Pepperoni pizza', 
+  						:description => 'It is a Pepperoni pizza', 
   						:price => 450, 
   						:size => 30, 
   						:is_spicy => false, 
