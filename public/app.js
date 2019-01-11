@@ -19,3 +19,13 @@ function add_to_cart(id)
 	x = x * 1 + 1; // 1 button [Add to cart] click
 	window.localStorage.setItem(key, x);//new hash value
 }
+
+function order_items_amount()
+{
+	var total = 0;
+	for (var i = 0; i < localStorage.length; i++)
+	{
+    	total = total + localStorage[localStorage.key(i)] * 1;
+	}
+	alert("Pizzas in cart: " + total);
+}
