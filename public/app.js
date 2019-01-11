@@ -18,6 +18,14 @@ function add_to_cart(id)
 	var x = window.localStorage.getItem(key);
 	x = x * 1 + 1; // 1 button [Add to cart] click
 	window.localStorage.setItem(key, x);//new hash value
+
+	update_orders_input()
+}
+
+function update_orders_input()
+{
+	var orders = cart_get_orders();
+	$('#orders_input').val(orders);
 }
 
 function order_items_amount()
