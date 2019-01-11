@@ -25,7 +25,31 @@ function order_items_amount()
 	var total = 0;
 	for (var i = 0; i < localStorage.length; i++)
 	{
-    	total = total + localStorage[localStorage.key(i)] * 1;
+		var key = window.localStorage.key(i);
+		var value = window.localStorage.getItem(key);
+
+		if(key.indexOf('product_') == 0)
+		{
+			total = total + value * 1;
+		}    	
 	}
 	alert("Pizzas in your cart: " + total);
+}
+
+function cart_get_orders()
+{
+	var orders = '';
+
+	for (var i = 0; i < window.localStorage.length; i++)
+	{
+		var key = window.localStorage.key(i);
+		var value = window.localStorage.getItem(key);
+
+		if(key.indexOf('product_') == 0)
+		{
+			orders = orders + key + '=' + value + ',';
+		}
+	}
+
+	return orders;
 }
