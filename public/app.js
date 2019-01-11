@@ -27,5 +27,5 @@ function order_items_amount()
 	{
     	total = total + localStorage[localStorage.key(i)] * 1;
 	}
-	alert("Pizzas in cart: " + total);
+	alert("Pizzas in your cart: " + total);
 }
