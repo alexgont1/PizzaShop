@@ -19,7 +19,8 @@ function add_to_cart(id)
 	x = x * 1 + 1; // 1 button [Add to cart] click
 	window.localStorage.setItem(key, x);//new hash value
 
-	update_orders_input()
+	update_orders_input();
+	update_orders_button();
 }
 
 function update_orders_input()
@@ -27,6 +28,12 @@ function update_orders_input()
 	var orders = cart_get_orders();
 	$('#orders_input').val(orders);
 }
+
+function update_orders_button()
+{
+	var text = 'Cart (' + order_items_amount() + ')';
+	$('#orders_button').val(text);
+} 
 
 function order_items_amount()
 {
@@ -41,7 +48,8 @@ function order_items_amount()
 			total = total + value * 1;
 		}    	
 	}
-	alert("Pizzas in your cart: " + total);
+	// alert("Pizzas in your cart: " + total);
+	return total;
 }
 
 function cart_get_orders()
