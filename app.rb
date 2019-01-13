@@ -18,5 +18,27 @@ get '/about' do
 end
 
 post '/cart' do
-	erb 'Hello!'
+	orders_line = params[:orders]
+	erb "Hello! #{orders_line||='error'}"
+end
+
+def parse_orders_input orders_input
+
+	s1 = orders_input.split(/,/)
+
+	#puts s1.inspect
+	arr = []
+	s1.each do |x|
+		s2 = x.split(/=/)
+
+		#puts s2.inspect
+		s3 = s2[0].split(/_/)
+
+		id = s3[1] #key
+		cnt = s2[1] #value
+		arr2 = [id, cnt]
+		arr.push arr2
+		#puts "Product id: #{key}, number of items: #{value}"
+	end
+	return arr
 end
