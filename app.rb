@@ -20,38 +20,37 @@ get '/about' do
 	erb :about
 end
 
+post '/place_order' do
+	@order = Order.create params[:order]
+	erb :order_placed
+end
+
 post '/cart' do
 	@orders_input = params[:orders]
 	@items = parse_orders_input @orders_input
 
 	@items.each do |item|
-	 	item[0] = Product.find(item[0]) #id, cnt
+		#id, total
+	 	item[0] = Product.find(item[0]) 
 	end
 
 	erb :cart
-end
-
-post '/place_order' do
-
 end
 
 def parse_orders_input orders_input
 
 	s1 = orders_input.split(/,/)
 
-	#puts s1.inspect
 	arr = []
 	s1.each do |x|
 		s2 = x.split(/=/)
 
-		#puts s2.inspect
 		s3 = s2[0].split(/_/)
 
 		id = s3[1] #key
 		cnt = s2[1] #value
 		arr2 = [id, cnt]
 		arr.push arr2
-		#puts "Product id: #{key}, number of items: #{value}"
 	end
 	return arr
 end
