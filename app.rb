@@ -18,8 +18,10 @@ get '/about' do
 end
 
 post '/cart' do
-	orders_line = params[:orders]
-	erb "Hello! #{orders_line||='error'}"
+	orders_input = params[:orders]
+	@orders = parse_orders_input orders_input
+
+	erb "Hello! #{@orders.inspect}"
 end
 
 def parse_orders_input orders_input
