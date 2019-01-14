@@ -71,6 +71,8 @@ function cart_get_orders()
 
 function cancel_order()
 {
-	alert('cancel');
+	// alert('cancel');
+	window.localStorage.clear();
+	location.reload();
 	return false;
 }
